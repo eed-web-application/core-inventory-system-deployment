@@ -28,9 +28,24 @@ jobs:
             TOKEN: ${{ secrets.GH_PACKAGE_TOKEN }}
           with:
             arguments: assemble
+        - name: Check for docker-compose.yml file
+          uses: andstor/file-existence-action@v2
+          id: check_files
+          with:
+            files: "docker-compose.yml"
+        - name: Launch test backend
+          if: steps.check_files.outputs.files_exists == 'true'
+          run: |
+            docker compose -f docker-compose.yml up -d
+            sleep 5
         - name: Test Project
           uses: gradle/gradle-build-action@v2
           env:
             CI: true
           with:
             arguments: test
+        - name: Shutdown test backend
+          if: steps.check_files.outputs.files_exists == 'true' &&  (success() || failure())
+          run: |
+            docker compose -f docker-compose.yml logs
+            docker compose -f docker-compose.yml down -v
