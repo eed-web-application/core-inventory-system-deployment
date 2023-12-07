@@ -115,8 +115,8 @@ jobs:
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
             build-args: |
-              USERNAME=${{ secrets.GH_PACKAGE_USERNAME }}
-              TOKEN=${{ secrets.GH_PACKAGE_TOKE }}
+              GH_USERNAME=${{ secrets.GH_PACKAGE_USERNAME }}
+              GH_TOKEN=${{ secrets.GH_PACKAGE_TOKE }}
     deploy:
         name: Start Deployment
         runs-on: ubuntu-latest
