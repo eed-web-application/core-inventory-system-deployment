@@ -114,6 +114,9 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
+          env:
+            USERNAME: ${{ secrets.GH_PACKAGE_USERNAME }}
+            TOKEN: ${{ secrets.GH_PACKAGE_TOKEN }}
     deploy:
         name: Start Deployment
         runs-on: ubuntu-latest
