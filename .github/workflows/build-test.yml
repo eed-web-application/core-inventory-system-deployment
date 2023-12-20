@@ -27,6 +27,7 @@ jobs:
             GH_USERNAME: ${{ secrets.GH_PACKAGE_USERNAME }}
             GH_TOKEN: ${{ secrets.GH_PACKAGE_TOKEN }}
           with:
+            cache-disabled: true
             arguments: assemble
         - name: Check for docker-compose.yml file
           uses: andstor/file-existence-action@v2
