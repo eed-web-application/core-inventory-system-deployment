@@ -103,6 +103,7 @@ jobs:
             # generate Docker tags based on the following events/attributes
             tags: |
               type=sha
+              latest
             labels: |
               maintainer=bisegni@slac.stanford.edu
         - name: Build and push Docker image
