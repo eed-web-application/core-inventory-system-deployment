@@ -133,9 +133,11 @@ jobs:
           - name: Extract SHA Tag
             id: extract_tag
             run: |
-              IMAGE_SHA_TAG=$(echo "${{ needs.build-docker-images.outputs.IMAGE_TO_DEPLOY }}" | cut -d ',' -f1)
+              
               echo "IMAGE_SHA_TAG=$IMAGE_SHA_TAG" >> $GITHUB_ENV
           - run: |
+                export IMAGE_SHA_TAG=$(echo "${{ needs.build-docker-images.outputs.IMAGE_TO_DEPLOY }}" | cut -d ',' -f1)
+                echo "Use image $IMAGE_SHA_TAG for deployment"
                 gh workflow --repo eed-web-application/core-inventory-system-deployment run Deployment -f deployment_image="$IMAGE_SHA_TAG"
             env:
                 GITHUB_TOKEN: ${{ secrets.TRIGGER_WORKFLOW_SECRET }}
