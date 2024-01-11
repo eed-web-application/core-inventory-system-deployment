@@ -20,7 +20,7 @@ spec:
       containers:
       - name: core-inventory-system-deployment
         imagePullPolicy: Always
-        image: ghcr.io/eed-web-application/core-inventory-system:sha-f9699cb
+        image: ghcr.io/eed-web-application/core-inventory-system:sha-497a581
         envFrom:
         - configMapRef:
             name: env-config-map
