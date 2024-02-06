@@ -50,8 +50,6 @@ jobs:
           run: |
             docker compose -f docker-compose.yml logs
             docker compose -f docker-compose.yml down -v
-<<<<<<< Updated upstream
-=======
         - name: Add coverage to PR
           id: jacoco
           uses: madrapps/jacoco-report@v1.6.1
@@ -60,4 +58,3 @@ jobs:
             token: ${{ secrets.GITHUB_TOKEN }}
             min-coverage-overall: 50
             min-coverage-changed-files: 60
->>>>>>> Stashed changes
