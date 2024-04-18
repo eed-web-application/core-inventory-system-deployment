@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: core-inventory-system-deployment
+  name: core-inventory-system
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: core-inventory-system-deployment
+      app: core-inventory-system
   template:
     metadata:
       labels:
-        app: core-inventory-system-deployment
+        app: core-inventory-system
       annotations:
         prometheus.io/scrape: 'true'
         prometheus.io.scheme: 'http'
@@ -18,7 +18,7 @@ spec:
         prometheus.io/port: '8080'
     spec:
       containers:
-      - name: core-inventory-system-deployment
+      - name: core-inventory-system
         imagePullPolicy: Always
         image: ghcr.io/eed-web-application/core-inventory-system:sha-d4b06fc
         envFrom:

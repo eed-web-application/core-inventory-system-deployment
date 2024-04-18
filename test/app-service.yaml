@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: eed-java-backend-example-service
+  name: core-inventory-system-service
 spec:
   selector:
-    app: eed-java-backend-example
+    app: core-inventory-system
   ports:
     - name: http
       protocol: TCP

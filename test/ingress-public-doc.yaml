@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: core-inventory-system-public-doc-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /api-docs
+spec:
+  rules:
+  - host: "accel-webapp-dev.slac.stanford.edu"
+    http:
+      paths:
+      - path: /api-doc/cis
+        pathType: Prefix
+        backend:
+          service:
+            name: core-inventory-system-service
+            port:
+              number: 80

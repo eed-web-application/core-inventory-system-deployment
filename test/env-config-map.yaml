@@ -4,4 +4,17 @@ metadata:
   name: env-config-map
 data:
   # property-like keys; each key maps to a simple value
-  ENV_NAME: value
+  CIS_MAX_POST_SIZE: 100MB
+  #CIS_CONSUMER_GROUP_ID: elog-plus-group
+  CIS_AUTHENTICATION_HEADER: x-vouch-idp-accesstoken
+  #CIS_KAFKA_BOOTSTRAP:  eed-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
+  #CIS_KAFKA_SECURITY_PROTOCOL: SASL_PLAINTEXT
+  #CIS_KAFKA_SASL_MECHANISM: SCRAM-SHA-512
+  #CIS_KAFKA_SASL_JAAS_CONFIG: 'org.apache.kafka.common.security.scram.ScramLoginModule required username="elog-plus" password="";'
+  CIS_LDAP_URI: ldaps://sdfldap001.sdf.slac.stanford.edu
+  CIS_LDAP_BASE: dc=sdf,dc=slac,dc=stanford,dc=edu
+  CIS_ROOT_USERS: bisegni@slac.stanford.edu,mgibbs@slac.stanford.edu,boogie@slac.stanford.edu
+  CIS_OIDC_CONFIGURATION_ENDPOINT: https://dex.slac.stanford.edu/.well-known/openid-configuration
+  SPRING_PROFILES_ACTIVE: init-work-activity-type,init-shop-group
+  #root authenticaiton token
+  CIS__ROOT_AUTHENTICATION_TOKEN_JSON: '[{"name":"root-token-1","expiration":"2025-12-31"}]'
