@@ -12,7 +12,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /api/cwm-apptoken(/|$)(.*)
+        path: /api/cis-apptoken(/|$)(.*)
         backend:
           service:
             name: core-inventory-system-service
